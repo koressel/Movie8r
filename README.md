@@ -7,7 +7,7 @@
 
 Movie8r is a music library application with over 700,000 movies and TV shows.
 
-![](header.png)
+![](./public/img/header.png)
 
 ## Installation
 
