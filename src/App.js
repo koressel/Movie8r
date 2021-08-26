@@ -6,6 +6,7 @@ import SearchBar from './components/searchbar';
 import GenreMenu from './components/genremenu';
 import Pagination from './components/pagination';
 import MovieInfo from './components/movieinfo';
+import PageTitle from './components/pagetitle';
 
 
 class Movie8r extends React.Component {
@@ -20,6 +21,7 @@ class Movie8r extends React.Component {
       currentURL: `https://api.themoviedb.org/3/discover/movie?&api_key=${'5dee9b99bfc124fbabfa815c9bb193ba'}`,
       movieId: 'default',
       nextURL: '',
+      title: "New Release",
       page: 1,
       maxPage: 1,
 
@@ -193,7 +195,7 @@ class Movie8r extends React.Component {
     }
 
 
-    this.setState({ nextURL: encodeURI(_nextURL), page: 1 });
+    this.setState({ nextURL: encodeURI(_nextURL), page: 1, title: keywords});
   }
 
   genreChange(genreID) {
@@ -419,6 +421,10 @@ class Movie8r extends React.Component {
           </div>
 
         </div>
+
+      <PageTitle
+        title={this.state.title}
+      ></PageTitle>
 
         <main>
 

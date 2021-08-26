@@ -24,7 +24,7 @@ class MovieInfo extends React.Component {
     if (this.props.movieId !== 'default') {
       if (this.props.movieId !== this.state.movieId) {
         let movieUrl = `https://api.themoviedb.org/3/movie/${this.props.movieId}?api_key=5dee9b99bfc124fbabfa815c9bb193ba&language=en-US`;
-        let _movieId = this.props.movieId
+        let _movieId = this.props.movieId;
 
         fetch(movieUrl)
           .then(res => res.json())
@@ -86,10 +86,7 @@ class MovieInfo extends React.Component {
             <p className="movie-metadata">{this.state.hours}hr {this.state.minutes}min</p>
             <a className="movie-metadata" href={`https://www.imdb.com/title/${this.state.imdb_id}`} target="_blank">IMDB</a>
             <p>{this.state.overview}</p>
-            <h2>Where to watch</h2>
-            <p><a href="#">123movies.co</a></p>
-            <p><a href="#">bmovies.io</a></p>
-            <p><a href="#">fmovies123.uk.co</a></p>
+            <p><a href="#">Watch Now</a></p>
           </div>
         </div>
       </div>

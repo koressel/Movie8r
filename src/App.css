@@ -168,9 +168,13 @@ body {
   background: #424242;
 }
 
-
-
-
+.page-title-container {
+  background: linear-gradient(orange, black);
+  color: white;
+  width: 100%;
+  height: 20em;
+  padding: 2em;
+}
 
 #pagination button {
    background: none!important;
@@ -271,6 +275,9 @@ body {
 #info-container {
   margin-top: 2em;
   color: white;
+}
+#info-container h1{
+  margin: .5em 0 0 0;
 }
 #info-container img {
   /* display: block;
