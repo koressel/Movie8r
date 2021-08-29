@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'jquery';
-import './lib/foundation/foundation.min.css';
+import './lib/foundation.min.css';
 import SearchBar from './components/searchbar';
 import GenreMenu from './components/genremenu';
 import Pagination from './components/pagination';
@@ -22,6 +22,7 @@ class Movie8r extends React.Component {
       movieId: 'default',
       nextURL: '',
       title: "New Release",
+      bgColor: "blue",
       page: 1,
       maxPage: 1,
 
@@ -52,7 +53,7 @@ class Movie8r extends React.Component {
         let maxPage = resultObj.total_pages;
         console.log(resultObj);
         let result = resultObj.results;
-        let backdropID = 1;
+        // let backdropID = 1;
         let movieElements = result.map(movie => {
           return (
             <div className="movie cell small-4 medium-3 large-2" key={movie.id}>
@@ -194,8 +195,22 @@ class Movie8r extends React.Component {
       _nextURL = _nextURL.substring(0, gstart - 1) + _nextURL.substring(gend);
     }
 
-
-    this.setState({ nextURL: encodeURI(_nextURL), page: 1, title: keywords});
+    const colors = ["blue","green","orange", "purple"];
+    const currentColor = this.state.bgColor;
+    let nextColor = "";
+    if (currentColor === colors[colors.length-1]) {
+      nextColor = "blue";
+    }
+    else {
+      nextColor = colors[colors.indexOf(currentColor) + 1];
+    }
+    
+    this.setState({ 
+      nextURL: encodeURI(_nextURL), 
+      page: 1, 
+      title: keywords,
+      bgColor: nextColor
+    });
   }
 
   genreChange(genreID) {
@@ -392,7 +407,6 @@ class Movie8r extends React.Component {
   render() {
     return (
       <div className="App">
-
         <div className="title-bar title-bar-show" data-responsive-toggle="mobile-menu" data-hide-for="medium">
           <div className="title-bar-left">
             <a href="/" id="logo">Movie8r</a>
@@ -424,6 +438,7 @@ class Movie8r extends React.Component {
 
       <PageTitle
         title={this.state.title}
+        bgColor={this.state.bgColor}
       ></PageTitle>
 
         <main>

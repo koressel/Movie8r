@@ -36,9 +36,9 @@ class MovieInfo extends React.Component {
 
             // format date
             let year = releaseDate.substr(0, releaseDate.indexOf('-'));
-            let day = releaseDate.substr(releaseDate.length - 2, releaseDate.length);
-            let month = releaseDate.substr(releaseDate.indexOf('-')+1, releaseDate.indexOf('-')-2);
-            let formattedDate = `${month}/${day}/${year}`;
+            // let day = releaseDate.substr(releaseDate.length - 2, releaseDate.length);
+            // let month = releaseDate.substr(releaseDate.indexOf('-')+1, releaseDate.indexOf('-')-2);
+            // let formattedDate = `${month}/${day}/${year}`;
 
             // format runtime
             let _hours = 0;
@@ -84,7 +84,7 @@ class MovieInfo extends React.Component {
             <h1>{this.state.title}</h1>
             <p className="movie-metadata">{this.state.release_date}</p>
             <p className="movie-metadata">{this.state.hours}hr {this.state.minutes}min</p>
-            <a className="movie-metadata" href={`https://www.imdb.com/title/${this.state.imdb_id}`} target="_blank">IMDB</a>
+            <a className="movie-metadata" href={`https://www.imdb.com/title/${this.state.imdb_id}`} target="_blank" >IMDB</a>
             <p>{this.state.overview}</p>
             <p><a href="#">Watch Now</a></p>
           </div>
