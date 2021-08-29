@@ -286,7 +286,21 @@ class Movie8r extends React.Component {
       _nextURL = _nextURL.substring(0, qstart);
     }
 
-    this.setState({ nextURL: encodeURI(_nextURL), page: 1 });
+    const colors = ["blue","green","orange", "purple"];
+    const currentColor = this.state.bgColor;
+    let nextColor = "";
+    if (currentColor === colors[colors.length-1]) {
+      nextColor = "blue";
+    }
+    else {
+      nextColor = colors[colors.indexOf(currentColor) + 1];
+    }
+
+    this.setState({
+      nextURL: encodeURI(_nextURL),
+      page: 1,
+      bgColor: nextColor
+    });
   }
 
   pageChange(page) {
