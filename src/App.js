@@ -128,6 +128,7 @@ class Movie8r extends React.Component {
     let pagination = document.querySelector('#pagination');
 
     let _movieId = e.target.id;
+    
     // title = title.toLowerCase();
     // title = title.replace(/:/g, "");
     // title = title.replace(/ /g, "-");
@@ -214,6 +215,70 @@ class Movie8r extends React.Component {
   }
 
   genreChange(genreID) {
+    let genreName = "";
+
+    switch (genreID) {
+      case 0:
+        genreName = 'New Release';
+        break;
+      case 28:
+        genreName = 'Action';
+        break;
+      case 12:
+        genreName = 'Adventure';
+        break;
+      case 16:
+        genreName = 'Animation';
+        break;
+      case 35:
+        genreName = 'Comedy';
+        break;
+      case 80:
+        genreName = 'Crime';
+        break;
+      case 99:
+        genreName = 'Documentary';
+        break;
+      case 18:
+        genreName = 'Drama';
+        break;
+      case 10751:
+        genreName = 'Family';
+        break;
+      case 14:
+        genreName =  'Fantasy';
+        break;
+      case 36:
+        genreName = 'History';
+        break;
+      case 27:
+        genreName = 'Horror';
+        break;
+      case 10402:
+        genreName = 'Music';
+        break;
+      case 9648:
+        genreName = 'Mystery';
+        break;
+      case 10749:
+        genreName = 'Romance';
+        break;
+      case 878:
+        genreName = 'Science Fiction';
+        break;
+      case 53:
+        genreName = 'Thriller';
+        break;
+      case 10752:
+        genreName = 'War';
+        break;
+      case 37:
+        genreName = 'Western';
+        break;
+      default:
+        genreName = 0;
+    }
+ 
     let nextPageI = document.querySelector('#forward-button i');
     nextPageI.classList.add('white-text');
     let searchText = document.querySelector('.search');
@@ -299,6 +364,7 @@ class Movie8r extends React.Component {
     this.setState({
       nextURL: encodeURI(_nextURL),
       page: 1,
+      title: genreName,
       bgColor: nextColor
     });
   }
