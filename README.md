@@ -1,61 +1,42 @@
 # Movie8r
-> A movie library built with React.
+> A movie library integrated with IMDb that includes "Watch Now" functionality out-of-the-box.
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Downloads Stats][npm-downloads]][npm-url]
 
-Movie8r is a music library application with over 700,000 movies and TV shows.
+Utilizes the [The Movie Database (TMDB)](https://www.themoviedb.org/?language=en-US) api to put over 700,000 movies and TV shows at your fingertips.
 
 ![](./public/img/header.png)
 
 ## Installation
 
-Clone or download the project then run the following commands in the root directory.
+Clone the project and install dependencies.
 
 ```sh
+git clone https://github.com/koressel/movie8r.git movie8r
+cd movie8r
 npm install
-npm start
 ```
-> Note that the default start property runs "npm build" before serving the app. If you wish to change this, edit the package.json file.
-
-## Usage example
-
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
-
-_For more examples and usage, please refer to the [Wiki][wiki]._
 
 ## Development setup
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+Add your TMDB api key to a file named .env in the root directory.
 
 ```sh
-make install
-npm test
+# .env
+TMDB_API_KEY=<<YourApiKey>>
 ```
-
-## Release History
-
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-* 0.1.0
-    * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
-* 0.0.1
-    * Work in progress
+Then start the application with 
+>npm start
 
 ## Meta
 
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
+Taylor Koressel – [LinkedIn](https://www.linkedin.com/in/taylorkoressel/) – koressel.dev@gmail.com
 
 Distributed under the XYZ license. See ``LICENSE`` for more information.
 
-[https://github.com/yourname/github-link](https://github.com/dbader/)
+[https://github.com/koressel](https://github.com/koressel/)
 
 ## Contributing
 
