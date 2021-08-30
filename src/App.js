@@ -21,7 +21,14 @@ class Movie8r extends React.Component {
       currentURL: `https://api.themoviedb.org/3/discover/movie?&api_key=${'5dee9b99bfc124fbabfa815c9bb193ba'}`,
       movieId: 'default',
       nextURL: '',
+      prevTitle: "",
       title: "New Release",
+      backdrop_path: "",
+      overview: "",
+      release_date: "",
+      hours: 0,
+      minutes: 0,
+      imdb_id: "",
       bgColor: "blue",
       page: 1,
       maxPage: 1,
@@ -123,24 +130,64 @@ class Movie8r extends React.Component {
   }
 
   handleMovieClick(e) {
+    let id = e.target.id;
+    let url = `https://api.themoviedb.org/3/movie/${id}?api_key=5dee9b99bfc124fbabfa815c9bb193ba&language=en-US`;
     let movies = document.querySelector('#movie-container');
     let info = document.querySelector('#info-container');
     let pagination = document.querySelector('#pagination');
 
-    let _movieId = e.target.id;
-    
-    // title = title.toLowerCase();
-    // title = title.replace(/:/g, "");
-    // title = title.replace(/ /g, "-");
-
-    // window.location.href = `https://bmovie.cc/movies/${title}/`;
-    // window.location.href = `https://w1.123moviess.cc/`;
-
+    // show info overlay
     movies.classList = ('hide grid-x grid-margin-x');
     pagination.classList = 'hide text-center';
     info.classList = "";
 
-    this.setState({movieId: _movieId});
+    fetch(url)
+    .then(res => res.json())
+    .then(resObj => {
+      let releaseDate = resObj.release_date;
+      let runtime = resObj.runtime;
+      let year = releaseDate.substr(0, releaseDate.indexOf('-'));
+
+      // format runtime
+      let _hours = 0;
+      let _minutes = 0;
+      let justMinutes = false;
+      while (justMinutes === false) {
+        if (runtime >= 60) {
+          runtime -= 60;
+          _hours++;
+        }
+        else {
+          _minutes = runtime;
+          justMinutes = true;
+        }
+      }
+
+      const colors = ["blue","green","orange", "purple"];
+      const currentColor = this.state.bgColor;
+      let nextColor = "";
+      if (currentColor === colors[colors.length-1]) {
+        nextColor = "blue";
+      }
+      else {
+        nextColor = colors[colors.indexOf(currentColor) + 1];
+      }
+
+      const _prevTitle = this.state.title;
+
+      this.setState({
+        movieId: id,
+        prevTitle: _prevTitle,
+        title: resObj.original_title,
+        backdrop_path: resObj.backdrop_path,
+        overview: resObj.overview,
+        release_date: year,
+        hours: _hours,
+        minutes: _minutes,
+        imdb_id: resObj.imdb_id,
+        bgColor: nextColor
+      })
+    });
   }
 
   newSearch(keywords) {
@@ -482,6 +529,21 @@ class Movie8r extends React.Component {
     info.classList = "hide";
     movies.classList = ('grid-x grid-margin-x');
     pagination.classList = 'text-center';
+
+    const colors = ["blue","green","orange", "purple"];
+    const currentColor = this.state.bgColor;
+    let nextColor = "";
+    if (currentColor === colors[colors.length-1]) {
+      nextColor = "blue";
+    }
+    else {
+      nextColor = colors[colors.indexOf(currentColor) + 1];
+    }
+
+    this.setState({
+      title: this.state.prevTitle,
+      bgColor: nextColor
+    });
   }
 
   render() {
@@ -543,6 +605,13 @@ class Movie8r extends React.Component {
               <MovieInfo
                 backClicked={this.backClicked}
                 movieId={this.state.movieId}
+                title={this.state.title}
+                backdrop_path={this.state.backdrop_path}
+                overview={this.state.overview}
+                release_date={this.state.release_date}
+                hours={this.state.hours}
+                minutes={this.state.minutes}
+                imdb_id={this.state.imdb_id}
               ></MovieInfo>
             </div>
           </div>
