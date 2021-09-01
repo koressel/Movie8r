@@ -263,7 +263,6 @@ class Movie8r extends React.Component {
 
   genreChange(genreID) {
     let genreName = "";
-
     switch (genreID) {
       case 0:
         genreName = 'New Release';
