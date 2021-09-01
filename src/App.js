@@ -408,6 +408,15 @@ class Movie8r extends React.Component {
       nextColor = colors[colors.indexOf(currentColor) + 1];
     }
 
+    // hide info overlay if visible
+    let movies = document.querySelector('#movie-container');
+    let info = document.querySelector('#info-container');
+    let pagination = document.querySelector('#pagination');
+
+    info.classList = "hide";
+    movies.classList = ('grid-x grid-margin-x');
+    pagination.classList = 'text-center';
+
     this.setState({
       nextURL: encodeURI(_nextURL),
       page: 1,
