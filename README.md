@@ -6,7 +6,7 @@
 
 Utilizes the [The Movie Database (TMDB)](https://www.themoviedb.org/?language=en-US) api to put over 700,000 movies and TV shows at your fingertips.
 
-![](./public/img/header.png)
+![](./public/img/movie8r-9-15-21.png)
 
 ## Prerequisites
 Make sure you have installed all of the following prerequisites on your development machine:
