@@ -319,11 +319,18 @@ body {
   margin: 2em 2em 2em 0;
 }
 #info-container button {
-  margin-bottom: 2em;
+  margin-bottom: .75em;
   display: inline;
   color: white;
   font-size: 15pt;
 }
+#info-container button:hover {
+  color: #0000EE;
+}
+#info-container button:hover i {
+  color: #0000EE;
+}
+
 .large-icon {
   font-size: 20pt;
   padding: 0 .25em 0 0;
