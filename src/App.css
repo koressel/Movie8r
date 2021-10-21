@@ -314,17 +314,23 @@ body {
   margin: 0 auto; */
   width: 100%;
 }
-#info-container .movie-metadata {
+
+#info-container button {
+  margin-bottom: 2em;
   display: inline;
-  margin: 2em 2em 2em 0;
+  color: white;
+  font-size: 15pt;
 }
+.large-icon {
+  font-size: 20pt;
+  padding: 0 .25em 0 0;
+}
+
 .hide {
   display: none;
 }
 
-.large-icon {
-  font-size: 20pt;
-}
+
 
 #history h1,p {
   color: white;

@@ -72,7 +72,7 @@ class MovieInfo extends React.Component {
       <div className="grid-container">
         <div className="grid-x grid-margin-x">
           <div className="cell small-12 medium-10 medium-offset-1 large-8 large-offset-2">
-          <button onClick={this.handleBackClick}><i className="fi-arrow-left white-text large-icon"></i></button>
+          <button  onClick={this.handleBackClick}><i className="fi-arrow-left white-text large-icon"></i> Back</button>
             <img src={`https://image.tmdb.org/t/p/w500${this.props.backdrop_path}`} alt="Movie backdrop"/>
             <h1>{this.props.title}</h1>
             <p className="movie-metadata">{this.props.release_date}</p>
