@@ -79,7 +79,7 @@ class MovieInfo extends React.Component {
             <p className="movie-metadata">{this.props.hours}hr {this.props.minutes}min</p>
             <a className="movie-metadata" href={`https://www.imdb.com/title/${this.props.imdb_id}`} target="_blank" >IMDB</a>
             <p>{this.props.overview}</p>
-            <p><a href="#">Watch Now</a></p>
+            <p><a href={`https://bmovies.co/movies/${this.props.title}`} target="_blank">Watch Now</a></p>
           </div>
         </div>
       </div>
