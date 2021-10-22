@@ -1,9 +1,6 @@
 # Movie8r
 > A movie library integrated with IMDb that includes "Watch Now" functionality out-of-the-box.
 
-![node-current](https://img.shields.io/node/v/parcel?style=flat-square)
-
-
 Utilizes the [The Movie Database (TMDB)](https://www.themoviedb.org/?language=en-US) api to put over 700,000 movies and TV shows at your fingertips.
 
 ![](./public/img/movie8r-9-15-21.png)
